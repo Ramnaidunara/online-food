@@ -6,55 +6,179 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>MY PROJECT</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+      .header {
+        text-align: center;
+        padding: 20px;
+      }
+      .header h1 {
+        font-size: 2em;
+      }
+      .header p {
+        font-size: 1.2em;
+        color: #555;
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      .card i {
+        font-size: 2.5em;
+        color: #007bff;
+        margin-bottom: 10px;
+      }
+      .card h3 {
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+      .card button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .card button:hover {
+        background-color: #0056b3;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #343a40;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <div class="h1">
-      <h1 class="h2">🍕WELCOME TO WINGSMART 🥘</h1>
+    <div class="header">
+      <h1>🍕WELCOME TO WINGSMART 🥘</h1>
       <p>Order whatever you want</p>
-      <div class="h3-button">
-        <button id="pizza-btn">PIZZA</button>
-        <button id="burger-btn">BURGER</button>
-        <button id="biriyani-btn">BIRIYANI</button>
-        <button id="beverage-btn">BEVERAGE</button>
-        <button id="icecream-btn">ICECREAM</button>
-        <button id="meat-btn">MEAT</button>
-        <button id="milk-btn">MILK</button>
-        <button id="grocery-btn">GROCERY</button>
+    </div>
+    <div class="card-container">
+      <div class="card">
+        <i class="fas fa-pizza-slice"></i>
+        <h3>PIZZA</h3>
+        <button id="pizza-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-hamburger"></i>
+        <h3>BURGER</h3>
+        <button id="burger-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-drumstick-bite"></i>
+        <h3>BIRIYANI</h3>
+        <button id="biriyani-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-wine-glass"></i>
+        <h3>BEVERAGE</h3>
+        <button id="beverage-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-ice-cream"></i>
+        <h3>ICE CREAM</h3>
+        <button id="icecream-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-drumstick-bite"></i>
+        <h3>MEAT</h3>
+        <button id="meat-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>MILK</h3>
+        <button id="milk-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-shopping-cart"></i>
+        <h3>GROCERY</h3>
+        <button id="grocery-btn">Order Now</button>
       </div>
     </div>
     <footer>
-      <div class="footer">
-        <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
-        <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
-      </div>
+      <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
+      <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
     </footer>
 
     <!-- JavaScript -->
     <script>
-      // Add an event listener to the "Pizza" button
       document
         .getElementById("pizza-btn")
         .addEventListener("click", function () {
-          window.location.href = "pizza.html"; // Navigate to pizza.html
+          window.location.href = "pizza.html";
         });
 
-      // Add similar listeners for other buttons (optional)
       document
         .getElementById("burger-btn")
         .addEventListener("click", function () {
-          window.location.href = "burger.html"; // Navigate to burger.html
+          window.location.href = "burger.html";
         });
 
       document
         .getElementById("biriyani-btn")
         .addEventListener("click", function () {
-          window.location.href = "biriyani.html"; // Navigate to biriyani.html
+          window.location.href = "biriyani.html";
         });
 
       document
-        .getElementById("meals-btn")
+        .getElementById("beverage-btn")
         .addEventListener("click", function () {
-          window.location.href = "meals.html"; // Navigate to meals.html
+          window.location.href = "beverage.html";
+        });
+
+      document
+        .getElementById("icecream-btn")
+        .addEventListener("click", function () {
+          window.location.href = "icecream.html";
+        });
+
+      document
+        .getElementById("meat-btn")
+        .addEventListener("click", function () {
+          window.location.href = "meat.html";
+        });
+
+      document
+        .getElementById("milk-btn")
+        .addEventListener("click", function () {
+          window.location.href = "milk.html";
+        });
+
+      document
+        .getElementById("grocery-btn")
+        .addEventListener("click", function () {
+          window.location.href = "grocery.html";
         });
     </script>
   </body>
