@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="payment">
+      <h1>Payment Options</h1>
+      <p id="order-summary">Loading order details...</p>
+
+      <form action="#" id="payment-form">
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+          <label>
+            <input
+              type="radio"
+              name="payment-method"
+              value="credit-card"
+              required
+            />
+            Credit Card </label
+          ><br />
+          <label>
+            <input type="radio" name="payment-method" value="debit-card" />
+            Debit Card </label
+          ><br />
+          <label>
+            <input type="radio" name="payment-method" value="upi" />
+            UPI </label
+          ><br />
+          <label>
+            <input type="radio" name="payment-method" value="net-banking" />
+            Net Banking
+          </label>
+        </div>
+
+        <!-- Payment Details -->
+        <div id="payment-details">
+          <input type="text" placeholder="Enter Payment Details" required />
+        </div>
+
+        <button type="submit">Pay Now</button>
+      </form>
+    </div>
+
+    <script>
+      // Retrieve order details from the URL
+      const params = new URLSearchParams(window.location.search);
+      const pizzaName = params.get("name");
+      const pizzaPrice = params.get("price");
+
+      // Display order summary
+      document.getElementById(
+        "order-summary"
+      ).textContent = `You are paying for ${pizzaName} costing ${pizzaPrice}.`;
+
+      // Handle form submission
+      document
+        .getElementById("payment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form from reloading the page
+
+          // Get selected payment method
+          const selectedPaymentMethod = document.querySelector(
+            'input[name="payment-method"]:checked'
+          ).value;
+
+          // Redirect based on payment method
+          if (selectedPaymentMethod === "credit-card") {
+            window.location.href =
+              "https://www.example-credit-card-payment.com";
+          } else if (selectedPaymentMethod === "debit-card") {
+            window.location.href = "https://www.example-debit-card-payment.com";
+          } else if (selectedPaymentMethod === "upi") {
+            window.location.href = "https://www.example-upi-payment.com";
+          } else if (selectedPaymentMethod === "net-banking") {
+            window.location.href =
+              "https://www.example-net-banking-payment.com";
+          }
+
+          alert("Payment successful! Thank you for your order.");
+          window.location.href = "index.html"; // Navigate back to the homepage
+        });
+    </script>
+  </body>
+</html>
