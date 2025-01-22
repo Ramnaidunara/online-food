@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Burger Menu</title>
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+      .header {
+        text-align: center;
+        padding: 20px;
+      }
+      .header h1 {
+        font-size: 2em;
+      }
+      .header p {
+        font-size: 1.2em;
+        color: #555;
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      .card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .card h3 {
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+      .card button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .card button:hover {
+        background-color: #0056b3;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #343a40;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🍔 Welcome to Our Burger Menu 🍔</h1>
+      <p>Choose your favorite burger and enjoy!</p>
+    </div>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Classic Burger" />
+        <h3>Classic Burger</h3>
+        <p>Juicy beef patty with lettuce, tomato, and cheese.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Cheese Burger" />
+        <h3>Cheese Burger</h3>
+        <p>Loaded with extra cheese and your favorite toppings.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Chicken Burger" />
+        <h3>Chicken Burger</h3>
+        <p>Crispy chicken patty with fresh veggies and mayo.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Veggie Burger" />
+        <h3>Veggie Burger</h3>
+        <p>A healthy and tasty option with fresh vegetables.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="BBQ Burger" />
+        <h3>BBQ Burger</h3>
+        <p>Smoky BBQ sauce with a grilled patty and crispy onions.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/100" alt="Double Patty Burger" />
+        <h3>Double Patty Burger</h3>
+        <p>Twice the meat, twice the flavor, and twice the fun.</p>
+        <button>Order Now</button>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
+      <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
+    </footer>
+  </body>
+</html>
