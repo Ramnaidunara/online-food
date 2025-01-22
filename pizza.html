@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Pizza</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <h3>Margherita Pizza</h3>
+        <p>A classic delight with a soft crust and a cheesy topping.</p>
+        <p><strong>Price:</strong> ₹100</p>
+        <button onclick="navigateToOrder('Margherita Pizza', ' ₹100')">
+          Order Now
+        </button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <h3>Pepperoni Pizza</h3>
+        <p>
+          A flavorful treat topped with crispy pepperoni and mozzarella cheese.
+        </p>
+        <p><strong>Price:</strong> ₹120</p>
+        <button onclick="navigateToOrder('Pepperoni Pizza', ' ₹120')">
+          Order Now
+        </button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <h3>Veggie Pizza</h3>
+        <p>Loaded with fresh vegetables, tangy sauce, and melted cheese.</p>
+        <p><strong>Price:</strong> ₹90</p>
+        <button onclick="navigateToOrder('Veggie Pizza', ' ₹140')">
+          Order Now
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function navigateToOrder(pizzaName, pizzaPrice) {
+        // Create query parameters for the order details
+        const params = new URLSearchParams({
+          name: pizzaName,
+          price: pizzaPrice,
+        });
+
+        // Navigate to confirm.html with query parameters
+        window.location.href = `confirm.html?${params.toString()}`;
+      }
+    </script>
+  </body>
+</html>

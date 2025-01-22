@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Order</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="confirmation">
+      <h1>Order Confirmation</h1>
+      <p id="order-details">Loading your order details...</p>
+      <button onclick="navigateToPayment()">Confirm Order</button>
+    </div>
+
+    <script>
+      // Retrieve the query parameters from the URL
+      const params = new URLSearchParams(window.location.search);
+      const pizzaName = params.get("name");
+      const pizzaPrice = params.get("price");
+
+      // Display the order details
+      document.getElementById(
+        "order-details"
+      ).textContent = `You ordered a ${pizzaName} for ${pizzaPrice}.`;
+
+      function navigateToPayment() {
+        // Pass the pizza details to the payment page
+        const paymentParams = new URLSearchParams({
+          name: pizzaName,
+          price: pizzaPrice,
+        });
+
+        window.location.href = `payment.html?${paymentParams.toString()}`;
+      }
+    </script>
+  </body>
+</html>

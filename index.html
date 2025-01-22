@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MY PROJECT</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="h1">
+      <h1 class="h2">🍕WELCOME TO WINGSMART 🥘</h1>
+      <p>Order whatever you want</p>
+      <div class="h3-button">
+        <button id="pizza-btn">PIZZA</button>
+        <button id="burger-btn">BURGER</button>
+        <button id="biriyani-btn">BIRIYANI</button>
+        <button id="beverage-btn">BEVERAGE</button>
+        <button id="icecream-btn">ICECREAM</button>
+        <button id="meat-btn">MEAT</button>
+        <button id="milk-btn">MILK</button>
+        <button id="grocery-btn">GROCERY</button>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
+        <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Add an event listener to the "Pizza" button
+      document
+        .getElementById("pizza-btn")
+        .addEventListener("click", function () {
+          window.location.href = "pizza.html"; // Navigate to pizza.html
+        });
+
+      // Add similar listeners for other buttons (optional)
+      document
+        .getElementById("burger-btn")
+        .addEventListener("click", function () {
+          window.location.href = "burger.html"; // Navigate to burger.html
+        });
+
+      document
+        .getElementById("biriyani-btn")
+        .addEventListener("click", function () {
+          window.location.href = "biriyani.html"; // Navigate to biriyani.html
+        });
+
+      document
+        .getElementById("meals-btn")
+        .addEventListener("click", function () {
+          window.location.href = "meals.html"; // Navigate to meals.html
+        });
+    </script>
+  </body>
+</html>
