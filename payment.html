@@ -3,87 +3,215 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payment Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Payment</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+        text-align: center;
+      }
+      .container {
+        margin: 50px auto;
+        padding: 20px;
+        max-width: 400px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #e64a19;
+      }
+      p {
+        font-size: 1.1em;
+        margin: 10px 0;
+      }
+      .price {
+        font-weight: bold;
+        font-size: 1.3em;
+        color: #555;
+      }
+      .form-group {
+        margin: 15px 0;
+        text-align: left;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .payment-methods {
+        margin: 20px 0;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .buttons button {
+        background-color: #e64a19;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: background-color 0.3s;
+      }
+      .buttons button:hover {
+        background-color: #d84315;
+      }
+      .buttons a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <div class="payment">
-      <h1>Payment Options</h1>
-      <p id="order-summary">Loading order details...</p>
+    <div class="container">
+      <h1>Payment</h1>
+      <p id="pizza-name"></p>
+      <p id="pizza-price" class="price"></p>
 
-      <form action="#" id="payment-form">
-        <!-- Payment Methods -->
-        <div class="payment-methods">
+      <!-- Payment Methods -->
+      <div class="payment-methods">
+        <h3>Select Payment Method</h3>
+        <div>
           <label>
-            <input
-              type="radio"
-              name="payment-method"
-              value="credit-card"
-              required
-            />
-            Credit Card </label
-          ><br />
-          <label>
-            <input type="radio" name="payment-method" value="debit-card" />
-            Debit Card </label
-          ><br />
+            <input type="radio" name="payment-method" value="card" checked />
+            Credit/Debit Card
+          </label>
+        </div>
+        <div>
           <label>
             <input type="radio" name="payment-method" value="upi" />
-            UPI </label
-          ><br />
+            UPI Payment
+          </label>
+        </div>
+        <div>
           <label>
-            <input type="radio" name="payment-method" value="net-banking" />
+            <input type="radio" name="payment-method" value="netbanking" />
             Net Banking
           </label>
         </div>
-
-        <!-- Payment Details -->
-        <div id="payment-details">
-          <input type="text" placeholder="Enter Payment Details" required />
+        <div>
+          <label>
+            <input type="radio" name="payment-method" value="cod" />
+            Cash on Delivery
+          </label>
         </div>
+      </div>
 
-        <button type="submit">Pay Now</button>
-      </form>
+      <!-- Payment Form -->
+      <div id="card-payment-form" class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="Enter your card number" />
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY" />
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" placeholder="Enter CVV" />
+      </div>
+
+      <div id="upi-payment-form" class="form-group" style="display: none;">
+        <label for="upi-id">UPI ID</label>
+        <input type="text" id="upi-id" placeholder="Enter your UPI ID" />
+      </div>
+
+      <div id="netbanking-form" class="form-group" style="display: none;">
+        <label for="bank">Select Bank</label>
+        <select id="bank">
+          <option value="hdfc">HDFC Bank</option>
+          <option value="icici">ICICI Bank</option>
+          <option value="sbi">State Bank of India</option>
+          <option value="axis">Axis Bank</option>
+        </select>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button onclick="makePayment()">Make Payment</button>
+        <button onclick="goBack()">Cancel</button>
+      </div>
     </div>
 
     <script>
-      // Retrieve order details from the URL
-      const params = new URLSearchParams(window.location.search);
-      const pizzaName = params.get("name");
-      const pizzaPrice = params.get("price");
+      // Function to parse URL parameters
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
 
-      // Display order summary
-      document.getElementById(
-        "order-summary"
-      ).textContent = `You are paying for ${pizzaName} costing ₹${pizzaPrice}.`;
+      // Display pizza details
+      const pizzaName = getQueryParam("name");
+      const pizzaPrice = getQueryParam("price");
 
-      // Handle form submission
-      document
-        .getElementById("payment-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent form from reloading the page
+      if (pizzaName && pizzaPrice) {
+        document.getElementById("pizza-name").innerText = `Pizza: ${pizzaName}`;
+        document.getElementById("pizza-price").innerText = `Price: ₹${pizzaPrice}`;
+      } else {
+        document.getElementById("pizza-name").innerText = "Error: No pizza selected.";
+        document.getElementById("pizza-price").style.display = "none";
+      }
 
-          // Get selected payment method
-          const selectedPaymentMethod = document.querySelector(
-            'input[name="payment-method"]:checked'
-          ).value;
-
-          // Redirect based on payment method
-          if (selectedPaymentMethod === "credit-card") {
-            window.location.href =
-              "https://www.example-credit-card-payment.com";
-          } else if (selectedPaymentMethod === "debit-card") {
-            window.location.href = "https://www.example-debit-card-payment.com";
-          } else if (selectedPaymentMethod === "upi") {
-            window.location.href = "https://www.example-upi-payment.com";
-          } else if (selectedPaymentMethod === "net-banking") {
-            window.location.href =
-              "https://www.example-net-banking-payment.com";
-          }
-
-          alert("Payment successful! Thank you for your order.");
-          window.location.href = "index.html"; // Navigate back to the homepage
+      // Show/Hide Payment Forms Based on Selection
+      const paymentMethods = document.getElementsByName("payment-method");
+      paymentMethods.forEach((method) => {
+        method.addEventListener("change", () => {
+          document.getElementById("card-payment-form").style.display =
+            method.value === "card" ? "block" : "none";
+          document.getElementById("upi-payment-form").style.display =
+            method.value === "upi" ? "block" : "none";
+          document.getElementById("netbanking-form").style.display =
+            method.value === "netbanking" ? "block" : "none";
         });
+      });
+
+      // Handle payment process
+      function makePayment() {
+        const selectedMethod = document.querySelector(
+          'input[name="payment-method"]:checked'
+        ).value;
+
+        if (selectedMethod === "card") {
+          const cardNumber = document.getElementById("card-number").value;
+          const expiryDate = document.getElementById("expiry-date").value;
+          const cvv = document.getElementById("cvv").value;
+          if (cardNumber && expiryDate && cvv) {
+            alert("Payment successful! Enjoy your pizza.");
+          } else {
+            alert("Please fill in all card details.");
+            return;
+          }
+        } else if (selectedMethod === "upi") {
+          const upiId = document.getElementById("upi-id").value;
+          if (upiId) {
+            alert("UPI payment successful! Enjoy your pizza.");
+          } else {
+            alert("Please provide your UPI ID.");
+            return;
+          }
+        } else if (selectedMethod === "netbanking") {
+          const bank = document.getElementById("bank").value;
+          alert(`Net banking payment successful through ${bank}. Enjoy your pizza.`);
+        } else if (selectedMethod === "cod") {
+          alert("Order placed! Please pay cash on delivery.");
+        }
+
+        window.location.href = "order confirmed.html"; // Redirect to menu or thank-you page
+      }
+
+      // Navigate back to the menu
+      function goBack() {
+        window.location.href = "order confirmed.html";
+      }
     </script>
   </body>
 </html>

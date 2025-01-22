@@ -3,35 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Confirm Order</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Order Confirmation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+        text-align: center;
+      }
+      .container {
+        margin: 50px auto;
+        padding: 20px;
+        max-width: 400px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #e64a19;
+      }
+      p {
+        font-size: 1.1em;
+        margin: 10px 0;
+      }
+      .price {
+        font-weight: bold;
+        font-size: 1.3em;
+        color: #555;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .buttons button {
+        background-color: #e64a19;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: background-color 0.3s;
+      }
+      .buttons button:hover {
+        background-color: #d84315;
+      }
+      .buttons a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <div class="confirmation">
+    <div class="container">
       <h1>Order Confirmation</h1>
-      <p id="order-details">Loading your order details...</p>
-      <button onclick="navigateToPayment()">Confirm Order</button>
+      <p id="pizza-name"></p>
+      <p id="pizza-price" class="price"></p>
+      <div class="buttons">
+        <button onclick="goBack()">Back to Menu</button>
+        <button onclick="placeOrder()">Confirm Order</button>
+      </div>
     </div>
-
     <script>
-      // Retrieve the query parameters from the URL
-      const params = new URLSearchParams(window.location.search);
-      const pizzaName = params.get("name");
-      const pizzaPrice = params.get("price");
+      // Function to parse URL parameters
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
 
-      // Display the order details
-      document.getElementById(
-        "order-details"
-      ).textContent = `You ordered a ${pizzaName} for ${pizzaPrice}.`;
+      // Display pizza details
+      const pizzaName = getQueryParam("name");
+      const pizzaPrice = getQueryParam("price");
 
-      function navigateToPayment() {
-        // Pass the pizza details to the payment page
-        const paymentParams = new URLSearchParams({
-          name: pizzaName,
-          price: pizzaPrice,
-        });
+      if (pizzaName && pizzaPrice) {
+        document.getElementById("pizza-name").innerText = `Pizza: ${pizzaName}`;
+        document.getElementById("pizza-price").innerText = `Price: ${pizzaPrice}`;
+      } else {
+        document.getElementById("pizza-name").innerText = "Error: No pizza selected.";
+        document.getElementById("pizza-price").style.display = "none";
+      }
 
-        window.location.href = `payment.html?${paymentParams.toString()}`;
+      // Navigate back to the menu
+      function goBack() {
+        window.location.href = "index.html"; // Replace with your menu file's name
+      }
+
+      // Function to confirm the order
+      function placeOrder() {
+        alert(`Your order for ${pizzaName} has been confirmed!`);
+        window.location.href = "payment.html"; // Redirect to menu or thank-you page
       }
     </script>
   </body>

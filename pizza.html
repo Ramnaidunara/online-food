@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <style>
+      /* Same CSS as before */
       body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -31,9 +32,6 @@
       .header p {
         font-size: 1.2em;
         color: #ffebee;
-      }
-      .back-button:hover {
-        background-color: #555;
       }
       .card-container {
         display: grid;
@@ -103,47 +101,59 @@
         <h3>Margherita Pizza</h3>
         <p>Classic pizza with fresh mozzarella and basil.</p>
         <p class="price">₹250</p>
-        <button>Order Now</button>
+        <button class="order-button" data-name="Margherita Pizza" data-price="₹250">Order Now</button>
       </div>
       <div class="card">
         <i class="fas fa-cheese"></i>
         <h3>Cheese Lovers</h3>
         <p>A pizza loaded with a mix of delicious cheeses.</p>
         <p class="price">₹300</p>
-        <button>Order Now</button>
+        <button class="order-button" data-name="Cheese Lovers" data-price="₹300">Order Now</button>
       </div>
       <div class="card">
         <i class="fas fa-pepper-hot"></i>
         <h3>Pepperoni Pizza</h3>
         <p>Spicy pepperoni slices with gooey cheese.</p>
         <p class="price">₹350</p>
-        <button>Order Now</button>
+        <button class="order-button" data-name="Pepperoni Pizza" data-price="₹350">Order Now</button>
       </div>
       <div class="card">
         <i class="fas fa-leaf"></i>
         <h3>Veggie Pizza</h3>
         <p>Topped with fresh vegetables and rich tomato sauce.</p>
         <p class="price">₹280</p>
-        <button>Order Now</button>
+        <button class="order-button" data-name="Veggie Pizza" data-price="₹280">Order Now</button>
       </div>
       <div class="card">
         <i class="fas fa-drumstick-bite"></i>
         <h3>BBQ Chicken Pizza</h3>
         <p>Barbecue chicken with tangy BBQ sauce and onions.</p>
         <p class="price">₹400</p>
-        <button>Order Now</button>
+        <button class="order-button" data-name="BBQ Chicken Pizza" data-price="₹400">Order Now</button>
       </div>
       <div class="card">
         <i class="fas fa-layer-group"></i>
         <h3>Meat Feast Pizza</h3>
         <p>A hearty mix of meats for the ultimate feast.</p>
         <p class="price">₹450</p>
-        <button>Order Now</button>
+        <button class="order-button" data-name="Meat Feast Pizza" data-price="₹450">Order Now</button>
       </div>
     </div>
     <footer>
       <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
       <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
     </footer>
+
+    <script>
+      // Add event listeners to all order buttons
+      document.querySelectorAll(".order-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const name = button.getAttribute("data-name");
+          const price = button.getAttribute("data-price");
+          // Navigate to confirm.html with query parameters
+          window.location.href = `confirm.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
+        });
+      });
+    </script>
   </body>
 </html>
