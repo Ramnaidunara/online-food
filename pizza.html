@@ -3,55 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Pizza</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pizza Menu</title>
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+      .header {
+        text-align: center;
+        padding: 20px;
+      }
+      .header h1 {
+        font-size: 2em;
+      }
+      .header p {
+        font-size: 1.2em;
+        color: #555;
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      .card i {
+        font-size: 2.5em;
+        color: #e64a19;
+        margin-bottom: 10px;
+      }
+      .card h3 {
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+      .card button {
+        background-color: #e64a19;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .card button:hover {
+        background-color: #d84315;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #343a40;
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    <div class="header">
+      <h1>🍕 Welcome to Our Pizza Menu 🍕</h1>
+      <p>Pick your favorite pizza and indulge in deliciousness!</p>
+    </div>
     <div class="card-container">
-      <!-- Card 1 -->
       <div class="card">
+        <i class="fas fa-pizza-slice"></i>
         <h3>Margherita Pizza</h3>
-        <p>A classic delight with a soft crust and a cheesy topping.</p>
-        <p><strong>Price:</strong> ₹100</p>
-        <button onclick="navigateToOrder('Margherita Pizza', ' ₹100')">
-          Order Now
-        </button>
+        <p>Classic pizza with fresh mozzarella and basil.</p>
+        <button>Order Now</button>
       </div>
-
-      <!-- Card 2 -->
       <div class="card">
+        <i class="fas fa-cheese"></i>
+        <h3>Cheese Lovers</h3>
+        <p>A pizza loaded with a mix of delicious cheeses.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-pepper-hot"></i>
         <h3>Pepperoni Pizza</h3>
-        <p>
-          A flavorful treat topped with crispy pepperoni and mozzarella cheese.
-        </p>
-        <p><strong>Price:</strong> ₹120</p>
-        <button onclick="navigateToOrder('Pepperoni Pizza', ' ₹120')">
-          Order Now
-        </button>
+        <p>Spicy pepperoni slices with gooey cheese.</p>
+        <button>Order Now</button>
       </div>
-
-      <!-- Card 3 -->
       <div class="card">
+        <i class="fas fa-leaf"></i>
         <h3>Veggie Pizza</h3>
-        <p>Loaded with fresh vegetables, tangy sauce, and melted cheese.</p>
-        <p><strong>Price:</strong> ₹90</p>
-        <button onclick="navigateToOrder('Veggie Pizza', ' ₹140')">
-          Order Now
-        </button>
+        <p>Topped with fresh vegetables and rich tomato sauce.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-drumstick-bite"></i>
+        <h3>BBQ Chicken Pizza</h3>
+        <p>Barbecue chicken with tangy BBQ sauce and onions.</p>
+        <button>Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-layer-group"></i>
+        <h3>Meat Feast Pizza</h3>
+        <p>A hearty mix of meats for the ultimate feast.</p>
+        <button>Order Now</button>
       </div>
     </div>
-
-    <script>
-      function navigateToOrder(pizzaName, pizzaPrice) {
-        // Create query parameters for the order details
-        const params = new URLSearchParams({
-          name: pizzaName,
-          price: pizzaPrice,
-        });
-
-        // Navigate to confirm.html with query parameters
-        window.location.href = `confirm.html?${params.toString()}`;
-      }
-    </script>
+    <footer>
+      <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
+      <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
+    </footer>
   </body>
 </html>
