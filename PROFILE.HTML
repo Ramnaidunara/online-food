@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - WINGSMART</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        .container h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #e64a19;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .container button {
+            background-color: #e64a19;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="profile-container">
+        <h2>Welcome to Your Profile</h2>
+        <input type="text" id="fullname" placeholder="Full Name" required />
+        <input type="text" id="phone" placeholder="Phone Number" required />
+        <button onclick="saveProfile()">Save Profile</button>
+    </div>
+
+    <script>
+        // Open the profile container on page load (for demonstration purposes)
+        document.getElementById('profile-container').style.display = 'block';
+
+        // Close the profile container when clicking anywhere on the webpage
+        document.addEventListener('click', function(event) {
+            const container = document.getElementById('profile-container');
+            
+            // Check if the click is outside the profile container
+            if (!container.contains(event.target)) {
+                container.style.display = 'none';
+            }
+        });
+
+        // Prevent the container from closing if clicked inside the profile
+        document.getElementById('profile-container').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // Save profile function
+        function saveProfile() {
+            alert("Profile saved successfully!");
+            window.location.href = "home.html";
+        }
+    </script>
+
+</body>
+</html>

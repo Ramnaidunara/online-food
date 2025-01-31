@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MY PROJECT</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+
+      .marquee {
+        background-color: #e64a19;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .header {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .header h1 {
+        font-size: 2em;
+      }
+
+      .header p {
+        font-size: 1.2em;
+        text-decoration: underline;
+        color: #555;
+      }
+
+      .nav {
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: #e64a19;
+        margin: 0 15px;
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+
+      .nav a:hover {
+        color: #d84315;
+      }
+
+      .search-bar {
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      .search-bar input {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1em;
+      }
+
+      .search-bar button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #e64a19;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .search-bar button:hover {
+        background-color: #d84315;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .card i {
+        font-size: 2.5em;
+        color: #e64a19;
+        margin-bottom: 10px;
+      }
+
+      .card h3 {
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+
+      .card button {
+        background-color: #e64a19;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .card button:hover {
+        background-color: #d84315;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #343a40;
+        color: white;
+      }
+
+     /* Profile Icon Styling */
+.profile-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* Ensure it's on top */
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 2.5em; /* Increased size for better visibility */
+  color: white; /* Changed color to white */
+  transition: color 0.3s;
+}
+
+.profile-icon:hover {
+  color: #d84315; /* Hover effect color */
+}
+
+/* Profile Icon Styling */
+.profile-container {
+  position: fixed;
+  top: 60px; /* Adjusted to place the profile icon below the marquee */
+  right: 20px;
+  z-index: 9999; /* Ensure it's on top */
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 2.5em; /* Increased size for better visibility */
+  color: white; /* Changed color to white */
+  transition: color 0.3s;
+}
+
+.profile-icon:hover {
+  color: #d84315; /* Hover effect color */
+}
+/* Profile Icon Styling */
+.profile-container {
+  position: fixed;
+  top: 50px; /* Positioned below the marquee */
+  right: 20px;
+  z-index: 9999; /* Ensure it's on top */
+  cursor: pointer;
+}
+
+.profile-icon {
+  font-size: 1.8em; /* Smaller icon size */
+  color: white; /* White icon color */
+  background-color: #e64a19; /* Matching the theme color */
+  padding: 8px; /* Reduced padding */
+  border-radius: 50%; /* Circular icon background */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.profile-icon:hover {
+  background-color: #d84315; /* Slightly darker on hover */
+  color: white; /* Keep the icon color white */
+  transform: scale(1.1); /* Slight scaling effect on hover */
+}
+
+/* Profile Dropdown Styling */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px; /* Positioned just below the icon */
+  right: 0;
+  background: white;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 12px; /* Reduced padding */
+  width: 220px; /* Smaller width */
+  z-index: 100;
+}
+
+.profile-dropdown p {
+  margin: 5px 0;
+  font-size: 0.85em; /* Smaller font size */
+}
+
+.profile-dropdown hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 8px 0; /* Reduced margin */
+}
+
+.profile-dropdown button {
+  width: 100%;
+  padding: 6px; /* Reduced padding */
+  border: none;
+  background-color: #e64a19;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-dropdown button:hover {
+  background-color: #d84315;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Profile Icon -->
+    <div class="profile-container">
+      <i class="fas fa-user-circle profile-icon" onclick="toggleProfile()"></i>
+      <div class="profile-dropdown" id="profile-dropdown">
+        <p><strong>Name:</strong> ram naidu nara</p>
+        <p><strong>Email:</strong> Ramnara@example.com</p>
+        <p><strong>Mobile:</strong> +91 9515477466</p>
+        <p><strong>Address:</strong> Hyderabad, India</p>
+        <hr />
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <!-- Marquee for Sale -->
+    <div class="marquee">
+      <span>🎉 SALE IS LIVE 🎉 50% Extra Discount.</span>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <h1>🍕 WINGSMART 🥘</h1>
+      <p>Order whatever you want</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search for items..."
+        oninput="searchItems()"
+      />
+      <button onclick="clearSearch()">Clear</button>
+    </div>
+
+    <!-- Card Container -->
+    <div class="card-container" id="card-container">
+      <div class="card">
+        <i class="fas fa-pizza-slice"></i>
+        <h3>PIZZA</h3>
+        <button id="pizza-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-hamburger"></i>
+        <h3>BURGER</h3>
+        <button id="burger-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-drumstick-bite"></i>
+        <h3>BIRIYANI</h3>
+        <button id="biriyani-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-wine-glass"></i>
+        <h3>BEVERAGE</h3>
+        <button id="beverage-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-ice-cream"></i>
+        <h3>ICE CREAM</h3>
+        <button id="icecream-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-drumstick-bite"></i>
+        <h3>MEAT</h3>
+        <button id="meat-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>MILK</h3>
+        <button id="milk-btn">Order Now</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-shopping-cart"></i>
+        <h3>GROCERY</h3>
+        <button id="grocery-btn">Order Now</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
+      <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Function to handle search dynamically
+      function searchItems() {
+        const searchTerm = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach((card) => {
+          const itemName = card.querySelector("h3").textContent.toLowerCase();
+          if (itemName.includes(searchTerm)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Function to clear search and show all items
+      function clearSearch() {
+        document.getElementById("search-input").value = "";
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          card.style.display = "block";
+        });
+      }
+
+      // Profile toggle functionality
+      function toggleProfile() {
+        const dropdown = document.getElementById("profile-dropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+
+      // Logout function
+      function logout() {
+        alert("Logging out...");
+        // Add your logout functionality here (e.g., redirect to login page)
+      }
+    </script>
+  </body>
+</html>
