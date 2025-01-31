@@ -58,6 +58,8 @@
     </style>
   </head>
   <body>
+
+    
     <div class="container">
       <h1>Order Confirmation</h1>
       <p id="pizza-name"></p>
@@ -79,7 +81,7 @@
       const pizzaPrice = getQueryParam("price");
 
       if (pizzaName && pizzaPrice) {
-        document.getElementById("pizza-name").innerText = `Pizza: ${pizzaName}`;
+        document.getElementById("pizza-name").innerText = `Selected: ${pizzaName}`;
         document.getElementById("pizza-price").innerText = `Price: ${pizzaPrice}`;
       } else {
         document.getElementById("pizza-name").innerText = "Error: No pizza selected.";

@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Burger Menu</title>
-    <!-- Font Awesome for icons -->
+    <title>Milk Menu</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -23,7 +22,6 @@
         padding: 20px;
         background-color: #e64a19;
         color: white;
-        position: relative;
       }
       .header h1 {
         font-size: 2em;
@@ -60,10 +58,6 @@
         font-size: 1.2em;
         margin: 10px 0;
       }
-      .card p {
-        margin: 5px 0 15px;
-        color: #555;
-      }
       .card .price {
         font-weight: bold;
         color: #333;
@@ -91,51 +85,37 @@
   </head>
   <body>
     <div class="header">
-      <h1>🍔 BURGER MENU 🍔</h1>
-      <p>Choose your favorite burger and enjoy the taste!</p>
+      <h1>🥛 MILK MENU 🥛</h1>
+      <p>Fresh and healthy milk options!</p>
     </div>
     <div class="card-container">
       <div class="card">
-        <i class="fas fa-hamburger"></i>
-        <h3>Classic Burger</h3>
-        <p>A juicy beef patty with fresh veggies and cheese.</p>
-        <p class="price">₹200</p>
-        <button class="order-button" data-name="Classic Burger" data-price="₹200">Order Now</button>
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>Full Cream Milk</h3>
+        <p>Fresh and creamy milk for all your needs.</p>
+        <p class="price">₹50/liter</p>
+        <button class="order-button" data-name="Full Cream Milk" data-price="₹50">Order Now</button>
       </div>
       <div class="card">
-        <i class="fas fa-cheese"></i>
-        <h3>Cheeseburger</h3>
-        <p>Double cheese with a beef patty and special sauce.</p>
-        <p class="price">₹250</p>
-        <button class="order-button" data-name="Cheeseburger" data-price="₹250">Order Now</button>
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>Skimmed Milk</h3>
+        <p>Low-fat milk for health-conscious individuals.</p>
+        <p class="price">₹45/liter</p>
+        <button class="order-button" data-name="Skimmed Milk" data-price="₹45">Order Now</button>
       </div>
       <div class="card">
-        <i class="fas fa-bacon"></i>
-        <h3>Bacon Burger</h3>
-        <p>Crispy bacon with beef patty and melted cheese.</p>
-        <p class="price">₹300</p>
-        <button class="order-button" data-name="Bacon Burger" data-price="₹300">Order Now</button>
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>Organic Milk</h3>
+        <p>Pure, organic milk from healthy cows.</p>
+        <p class="price">₹80/liter</p>
+        <button class="order-button" data-name="Organic Milk" data-price="₹80">Order Now</button>
       </div>
       <div class="card">
-        <i class="fas fa-leaf"></i>
-        <h3>Veggie Burger</h3>
-        <p>A delicious veggie patty with fresh vegetables.</p>
-        <p class="price">₹180</p>
-        <button class="order-button" data-name="Veggie Burger" data-price="₹180">Order Now</button>
-      </div>
-      <div class="card">
-        <i class="fas fa-pepper-hot"></i>
-        <h3>Spicy Burger</h3>
-        <p>Spicy chicken patty with jalapeños and cheese.</p>
-        <p class="price">₹280</p>
-        <button class="order-button" data-name="Spicy Burger" data-price="₹280">Order Now</button>
-      </div>
-      <div class="card">
-        <i class="fas fa-drumstick-bite"></i>
-        <h3>Chicken Burger</h3>
-        <p>Grilled chicken patty with fresh veggies.</p>
-        <p class="price">₹220</p>
-        <button class="order-button" data-name="Chicken Burger" data-price="₹220">Order Now</button>
+        <i class="fas fa-glass-whiskey"></i>
+        <h3>Buffalo Milk</h3>
+        <p>Rich and creamy buffalo milk.</p>
+        <p class="price">₹60/liter</p>
+        <button class="order-button" data-name="Buffalo Milk" data-price="₹60">Order Now</button>
       </div>
     </div>
     <footer>
@@ -144,12 +124,10 @@
     </footer>
 
     <script>
-      // Add event listeners to all order buttons
       document.querySelectorAll(".order-button").forEach((button) => {
         button.addEventListener("click", () => {
           const name = button.getAttribute("data-name");
           const price = button.getAttribute("data-price");
-          // Navigate to confirm.html with query parameters
           window.location.href = `confirm.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
         });
       });

@@ -19,6 +19,14 @@
         background-color: #f8f9fa;
         color: #333;
       }
+      .marquee {
+        background-color: #e64a19;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
       .header {
         text-align: center;
         padding: 20px;
@@ -28,7 +36,45 @@
       }
       .header p {
         font-size: 1.2em;
+        text-decoration: underline;
         color: #555;
+      }
+      .nav {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .nav a {
+        text-decoration: none;
+        color: #e64a19;
+        margin: 0 15px;
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      .nav a:hover {
+        color: #d84315;
+      }
+      .search-bar {
+        margin: 20px auto;
+        text-align: center;
+      }
+      .search-bar input {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1em;
+      }
+      .search-bar button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #e64a19;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .search-bar button:hover {
+        background-color: #d84315;
       }
       .card-container {
         display: grid;
@@ -80,11 +126,32 @@
     </style>
   </head>
   <body>
+    <!-- Marquee for Sale -->
+    <div class="marquee">
+      <span>🎉 SALE IS LIVE 🎉</span>
+    </div>
+
+
+
+    <!-- Header -->
     <div class="header">
-      <h1>🍕 WINGSMART 🥘</h1>
+      <h1>🍕 RAM'S WINGSMART 🥘</h1>
       <p>Order whatever you want</p>
     </div>
-    <div class="card-container">
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search for items..."
+        oninput="searchItems()"
+      />
+      <button onclick="clearSearch()">Clear</button>
+    </div>
+
+    <!-- Card Container -->
+    <div class="card-container" id="card-container">
       <div class="card">
         <i class="fas fa-pizza-slice"></i>
         <h3>PIZZA</h3>
@@ -126,6 +193,8 @@
         <button id="grocery-btn">Order Now</button>
       </div>
     </div>
+
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Classic Food Delivery. Taste the elegance!</p>
       <p>Contact us: wingsmart7@delivery.com | +91 9515477466</p>
@@ -133,6 +202,33 @@
 
     <!-- JavaScript -->
     <script>
+      // Function to handle search dynamically
+      function searchItems() {
+        const searchTerm = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach((card) => {
+          const itemName = card.querySelector("h3").textContent.toLowerCase();
+          if (itemName.includes(searchTerm)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Function to clear search and show all items
+      function clearSearch() {
+        document.getElementById("search-input").value = "";
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          card.style.display = "block";
+        });
+      }
+
+      // Event listeners for order buttons
       document
         .getElementById("pizza-btn")
         .addEventListener("click", function () {

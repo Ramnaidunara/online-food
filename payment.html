@@ -157,7 +157,7 @@
         document.getElementById("pizza-name").innerText = `Pizza: ${pizzaName}`;
         document.getElementById("pizza-price").innerText = `Price: ₹${pizzaPrice}`;
       } else {
-        document.getElementById("pizza-name").innerText = "pizza selected.";
+        document.getElementById("pizza-name").innerText = "Food Item selected.";
         document.getElementById("pizza-price").style.display = "none";
       }
 
@@ -208,9 +208,9 @@
         window.location.href = "order confirmed.html"; // Redirect to menu or thank-you page
       }
 
-      // Navigate back to the menu
+      // Navigate back to the previous page
       function goBack() {
-        window.location.href = "order confirmed.html";
+        window.history.back();
       }
     </script>
   </body>
