@@ -81,7 +81,7 @@
       const pizzaPrice = getQueryParam("price");
 
       if (pizzaName && pizzaPrice) {
-        document.getElementById("pizza-name").innerText = `Selected: ${pizzaName}`;
+        document.getElementById("pizza-name").innerText = `Selected Item: ${pizzaName}`;
         document.getElementById("pizza-price").innerText = `Price: ${pizzaPrice}`;
       } else {
         document.getElementById("pizza-name").innerText = "Error: No pizza selected.";
